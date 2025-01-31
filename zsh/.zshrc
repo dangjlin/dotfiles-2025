@@ -333,7 +333,7 @@ eval "$(zoxide init zsh --cmd j)"
 
 # use localhost / nerv for postgres service running in docker
 export PGHOST=localhost
-export PGUSER=nerv
+export PGUSER=daniel
 
 case `uname` in
   Darwin)
