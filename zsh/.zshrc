@@ -42,6 +42,16 @@ source ${ZIM_HOME}/init.zsh
 
 # }}} End configuration added by Zim install
 
+
+if [[ "`uname -s`" == "Darwin" ]]; then
+  # [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
+  [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && . $(brew --prefix asdf)/libexec/asdf.sh
+else
+  # [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh && source "$HOME/.asdf/completions/asdf.bash"
+  # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+fi
+
+
 ########################
 # General
 ########################
@@ -73,12 +83,12 @@ pairh() { ssh -S none -o 'ExitOnForwardFailure=yes' -R $2\:localhost:22 -t $1 'w
 
 # Use nvim
 alias e='nvim'
+alias vi ='nvim'
 alias vdiff='nvim -d'
 
 alias cat='bat'
 
 if type nvim > /dev/null 2>&1; then
-  alias vi ='nvim'
   alias vim='nvim'
 fi
 
@@ -400,3 +410,13 @@ function amoeba_test_reset() {
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# related to pg library
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@15/lib/pkgconfig"
