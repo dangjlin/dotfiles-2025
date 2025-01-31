@@ -339,14 +339,6 @@ function _cop_ruby() {
   fi
 }
 
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # fix issue on puma start in deamon mode
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
