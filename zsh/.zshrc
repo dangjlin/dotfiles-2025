@@ -48,8 +48,12 @@ source ${ZIM_HOME}/init.zsh
 
 source ~/.zshrc_helper
 
-[ -f ~/.ssh/abagile-dev.pem ] && ssh-add ~/.ssh/abagile-dev.pem 2&> /dev/null
-[ -f ~/.ssh/id_pair ] && ssh-add ~/.ssh/id_pair 2&> /dev/null
+local keys=('id_rsa' 'id_ed25519' 'id_pair')
+for key in $keys; do
+  if [[ -z $(ssh-add -l | rg $key) && -f ~/.ssh/$key ]]; then
+    ssh-add ~/.ssh/$key 2> /dev/null
+  fi
+done
 
 # Disable flow control then we can use ctrl-s to save in vim
 # Disable flow control commands (keeps C-s from freezing everything)
@@ -74,6 +78,7 @@ alias vdiff='nvim -d'
 alias cat='bat'
 
 if type nvim > /dev/null 2>&1; then
+  alias vi ='nvim'
   alias vim='nvim'
 fi
 
@@ -89,8 +94,17 @@ alias c='clear'
 alias aq='ag -F'
 alias px='ps aux'
 alias ep='exit'
-alias ag=rg
 alias rh='fc -R'
+
+# ag, rg
+alias ag='rg --sort created'
+alias agi='ag -i'
+alias agiw='ag -i -w'
+alias agr='ag --ruby'
+alias agri='ag --ruby -i'
+
+alias rgi='rg -i'
+alias rgiw='rg -iw'
 
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -106,9 +120,9 @@ alias gRf='git remote show origin | grep feature'
 alias gbda='git branch --merged | egrep -v "(^\*|master|nerv_ck|nerv_sg)" | xargs git branch -d'
 alias gbdda='git branch | egrep -v "(^\*|master|nerv_ck|nerv_sg)" | xargs git branch -D'
 alias glg='git log --stat --max-count=10 --pretty=format:"${_git_log_medium_format}"'
-alias gdd='gwd origin/master...'
+# alias gdd='gwd origin/master...'
 alias goc='gco'
-alias gddd='gwd origin/master...'
+# alias gddd='gwd origin/master...'
 alias gdde='e `gddd --name-only --relative`'
 alias gddm='tig origin/master..'
 alias gdda='gdd clojure/projects/adam'
@@ -122,6 +136,24 @@ alias gbs='git branch | grep -v spring'
 alias gbt='git checkout nerv_ck'
 alias gff='git checkout -b $(git branch --show-current)-fork'
 alias glcs='git rev-parse --short=12 HEAD'
+alias g='git'
+alias ggpull='git pull origin $(git_current_branch)'
+alias ggpush='git push origin $(git_current_branch)'
+alias gbr="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+alias gba="git branch --all"
+alias gst='git status'
+alias gwd='g diff --no-ext-diff'
+alias gid='g diff --no-ext-diff --cached'
+alias gcam='git commit --amend'
+alias gap='git commit -p'
+alias gad="git add"
+alias gco="git checkout"
+alias gfm="git pull"
+alias grm="git rebase master"
+alias gitlast="git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n"
+alias gbda='git branch --merged | egrep -v "(^\*|master|dev|nerv|perv)" | xargs git branch -d'
+
+alias dbdp='DEV_PASSWORD="ie6sucks" /Users/daniel/proj/vm/scripts/db_dump.rb'
 
 alias lg='lazygit'
 alias ld='lazydocker'
@@ -193,11 +225,17 @@ alias test_db_seed='rails db:seed RAILS_ENV=test'
 alias smig='skip_env mig'
 alias rgm='rails generate migration'
 
+alias rdm='bundle exec rails db:migrate'
+alias rdr='bundle exec rails db:rollback'
+alias rdms='bundle exec rails db:migrate:status'
+
 alias unlog='gunzip `rg -g production.log -w`'
 alias olog='e log/development.log'
 alias otlog='e log/test.log'
 alias clog='cat /dev/null >! log/lograge_development.log && cat /dev/null >! log/development.log'
 alias ctlog='cat /dev/null >! log/lograge_test.log && cat /dev/null >! log/test.log'
+
+alias pa='[[ -f config/puma.rb ]] && RAILS_RELATIVE_URL_ROOT=/`basename $PWD` bundle exec puma -C $PWD/config/puma.rb'
 
 # Test
 alias mi='rails test'
@@ -224,6 +262,7 @@ alias rws='NERV_BASE=/nerv_sg npm run watch'
 alias t='tmuxinator'
 alias work='t s work'
 alias deploy='t s deploy'
+alias tmux='tmux -u'
 
 # DevOps
 alias dk='docker'
@@ -243,7 +282,7 @@ alias en='e .env'
 ########################
 # eza
 ########################
-alias ls='eza'
+alias ls='exa --group-directories-first'
 alias ll='eza -l -a'
 alias tree='eza --tree'
 
@@ -285,6 +324,7 @@ export PGUSER=nerv
 case `uname` in
   Darwin)
     export HOMEBREW_NO_AUTO_UPDATE=1 # https://docs.brew.sh/Manpage
+    export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
     # only works in ZSH
     path=(
@@ -337,6 +377,23 @@ function _cop_ruby() {
   else
     echo 'Nothing to check (rubocop).'
   fi
+}
+
+function nrw() {
+  local folder_path
+  local folder_name
+  local asuka_path
+  [[ $PWD =~ '(.*perv|.*sg|.*nerv|.*ave_ck)'  ]] && folder_path=$match[1]
+  [[ $folder_path =~ '.*(perv|sg|nerv|ave_ck)$'  ]] && folder_name=$match[1]
+  asuka_path="$folder_path/clojure/projects/asuka"
+  cd $asuka_path && NERV_BASE=/${=folder_name} DEV_DARK_MODE=true npm run watch
+}
+
+function amoeba_test_reset() {
+  RAILS_ENV=test bundle exec rake db:drop
+  RAILS_ENV=test bundle exec rake db:create
+  RAILS_ENV=test bundle exec rake db:schema:load
+  RAILS_ENV=test bundle exec rake db:seed
 }
 
 # fix issue on puma start in deamon mode
