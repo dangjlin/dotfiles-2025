@@ -91,6 +91,7 @@ keymap("n", "<leader>dl", "<cmd>lua require('telescope.builtin').diagnostics()<c
 
 -- NvimTree
 keymap("n", "<leader>dd", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>f", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>df", ":NvimTreeFindFile<cr>", opts)
 
 -- in case you forgot to sudo
@@ -122,9 +123,11 @@ keymap("i", "<C-s>", "<esc>:w<CR>", opts)
 keymap("v", "<C-s>", "<esc>:w<CR>", opts)
 
 -- Close current buffer
-keymap("n", "<leader>q", "<esc>:bw<cr>", opts)
+keymap("n", "<leader>q", "<esc>:bd<cr>", opts)
 keymap("n", "<leader>x", "<esc>:bw<cr>", opts)
-keymap("i", "<leader>q", "<esc>:bw<cr>", opts)
+keymap("n", "<leader>c", "<esc>:close<cr>", opts)
+keymap("n", "<leader>p", "obinding.pry<esc>", opts)
+keymap("i", "<leader>q", "<esc>:bd<cr>", opts)
 keymap("i", "<leader>x", "<esc>:bw<cr>", opts)
 
 --  in all modes hit ,, can return to normal mode
@@ -141,10 +144,17 @@ keymap("n", "<leader>av", ":AV<CR>", opts)
 keymap("n", "<leader>gr", ":R<CR>", opts)
 keymap("n", "<leader>vl", ":sp<cr><C-^><cr>", opts)
 keymap("n", "<leader>hl", ":vsp<cr><C-^><cr>", opts)
+keymap("n", "<leader>bp", "obinding.pry<esc>", opts)
+
+keymap("n", "sp", ":sp<cr><C-^><cr>", opts)
+keymap("n", "vs", ":vsp<cr><C-^><cr>", opts)
+
+-- auto spell checking
+keymap("n", "<leader>zf", "1z=", opts)
 
 -- Git related plugins,
 -- fugitive
-keymap("n", "<leader>gb", ":Git blame<cr>", opts)
+keymap("n", "<leader>b", ":Git blame<cr>", opts)
 keymap("n", "<Leader>gs", "<cmd>lua require('neogit').open()<CR>", opts)
 keymap("n", "<Leader>gB", ":Telescope git_branches<CR>", opts)
 
