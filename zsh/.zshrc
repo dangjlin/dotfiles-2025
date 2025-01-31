@@ -282,7 +282,7 @@ alias en='e .env'
 ########################
 # eza
 ########################
-alias ls='exa --group-directories-first'
+alias ls='eza --group-directories-first'
 alias ll='eza -l -a'
 alias tree='eza --tree'
 
@@ -324,7 +324,7 @@ export PGUSER=nerv
 case `uname` in
   Darwin)
     export HOMEBREW_NO_AUTO_UPDATE=1 # https://docs.brew.sh/Manpage
-    export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+    # export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
     # only works in ZSH
     path=(
