@@ -12,7 +12,7 @@ set diff-highlight = true
                   author:full,width=7 \
                   commit-title:yes,graph,refs,overflow=no
 
-                  set main-view-date-format = "%m/%d %H:%M"
+                  set main-view-date-format = "%m/%d"
 
                   set blame-view = \
                   id:yes,color \
@@ -40,18 +40,18 @@ set diff-highlight = true
 
 # Colors {{{
   color id           red   default
-  color author       black default bold
-  color graph-commit black default bold
+  color author       yellow default bold
+  color graph-commit green default bold
 
   color cursor      white blue  bold
-  color title-blur  white black
+  color title-blur  white yellow
   color title-focus white blue
 
 # Avoid funcy colors in diff-view
     color "Author: "     default default
     color "AuthorDate: " default default
-    color "Commit: "     black   default bold
-    color "CommitDate: " black   default bold
+    color "Commit: "     yellow   default bold
+    color "CommitDate: " yellow   default bold
 
 # Add oldsince default blue is too dark
     color "index "     blue default bold
