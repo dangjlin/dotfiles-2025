@@ -58,16 +58,17 @@ fi
 
 source ~/.zshrc_helper
 
-local keys=('id_rsa' 'id_pair')
-for key in $keys; do
-  if [[ -z $(ssh-add -l | rg $key) && -f ~/.ssh/$key ]]; then
-    ssh-add ~/.ssh/$key 2> /dev/null
-  fi
-done
-
-if [[ -z $(ssh-add -l | rg 'ed25519') && -f ~/.ssh/id_ed25519 ]]; then
-  ssh-add ~/.ssh/id_ed25519 2> /dev/null
-fi
+ssh-add 2> /dev/null
+# local keys=('id_rsa' 'id_pair')
+# for key in $keys; do
+#   if [[ -z $(ssh-add -l | rg $key) && -f ~/.ssh/$key ]]; then
+#     ssh-add ~/.ssh/$key 2> /dev/null
+#   fi
+# done
+#
+# if [[ -z $(ssh-add -l | rg 'ed25519') && -f ~/.ssh/id_ed25519 ]]; then
+#   ssh-add ~/.ssh/id_ed25519 2> /dev/null
+# fi
 
 # Disable flow control then we can use ctrl-s to save in vim
 # Disable flow control commands (keeps C-s from freezing everything)
@@ -333,10 +334,10 @@ eval "$(zoxide init zsh --cmd j)"
 
 # use localhost / nerv for postgres service running in docker
 export PGHOST=localhost
-export PGUSER=daniel
 
 case `uname` in
   Darwin)
+    export PGUSER=daniel
     export HOMEBREW_NO_AUTO_UPDATE=1 # https://docs.brew.sh/Manpage
     # export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
@@ -372,6 +373,7 @@ case `uname` in
   ;;
   Linux)
     alias grep='grep --color=auto'
+    export PGUSER=psql
   ;;
 esac
 
