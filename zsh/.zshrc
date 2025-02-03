@@ -58,14 +58,12 @@ fi
 
 source ~/.zshrc_helper
 
-ssh-add 2> /dev/null
-# local keys=('id_rsa' 'id_pair')
-# for key in $keys; do
-#   if [[ -z $(ssh-add -l | rg $key) && -f ~/.ssh/$key ]]; then
-#     ssh-add ~/.ssh/$key 2> /dev/null
-#   fi
-# done
-#
+local keys=('id_rsa' 'id_pair')
+for key in $keys; do
+  if [[ -z $(ssh-add -l | rg $key) && -f ~/.ssh/$key ]]; then
+    ssh-add ~/.ssh/$key 2> /dev/null
+  fi
+done
 # if [[ -z $(ssh-add -l | rg 'ed25519') && -f ~/.ssh/id_ed25519 ]]; then
 #   ssh-add ~/.ssh/id_ed25519 2> /dev/null
 # fi
