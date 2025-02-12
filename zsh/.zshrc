@@ -150,8 +150,8 @@ alias gbt='git checkout nerv_ck'
 alias gff='git checkout -b $(git branch --show-current)-fork'
 alias glcs='git rev-parse --short=12 HEAD'
 alias g='git'
-alias ggpull='git pull origin $(git_current_branch)'
-alias ggpush='git push origin $(git_current_branch)'
+alias ggpull='git pull origin $(git symbolic-ref -q --short HEAD)'
+alias ggpush='git push origin $(git symbolic-ref -q --short HEAD)'
 alias gbr="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gba="git branch --all"
 alias gst='git status'
