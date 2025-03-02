@@ -7,7 +7,7 @@ local options = {
   ignorecase = true, -- case-insensitive search
   cursorline = true,
   hlsearch = false,
-  wrap   = false,
+  wrap   = true,
   swapfile = false,   -- disable .swp files creation in vim vim.opt.wrap = false
   number = true,      -- show line numbers
   relativenumber = true,

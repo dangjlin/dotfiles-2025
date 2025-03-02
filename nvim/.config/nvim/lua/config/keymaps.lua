@@ -146,8 +146,8 @@ keymap("n", "<leader>vl", ":sp<cr><C-^><cr>", opts)
 keymap("n", "<leader>hl", ":vsp<cr><C-^><cr>", opts)
 keymap("n", "<leader>bp", "obinding.pry<esc>", opts)
 
-keymap("n", "sp", ":sp<cr><C-^><cr>", opts)
-keymap("n", "vs", ":vsp<cr><C-^><cr>", opts)
+keymap("n", "sp", ":sp<cr>", opts)
+keymap("n", "vs", ":vsp<cr>", opts)
 
 -- auto spell checking
 keymap("n", "<leader>zf", "1z=", opts)
