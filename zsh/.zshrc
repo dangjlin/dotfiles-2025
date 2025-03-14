@@ -424,3 +424,9 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@15/lib/pkgconfig"
+
+# Added by Windsurf
+export PATH="/Users/daniel/.codeium/windsurf/bin:$PATH"
+
+# for wasp
+export PATH=$PATH:/Users/daniel/.local/bin
