@@ -430,3 +430,6 @@ export PATH="/Users/daniel/.codeium/windsurf/bin:$PATH"
 
 # for wasp
 export PATH=$PATH:/Users/daniel/.local/bin
+
+# for api keys
+[ -f ~/dotfiles/zsh/.zsh_secrets ] && source ~/dotfiles/zsh/.zsh_secrets
