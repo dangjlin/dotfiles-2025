@@ -129,7 +129,8 @@ return {
         },
         sources = {
           -- { name = "conjure" },
-          { name = "nvim_lsp", Keyword_length = 5 },
+          { name = 'copilot', priority = 1},
+          { name = "nvim_lsp", Keyword_length = 5, priority = 2 },
           { name = "buffer", Keyword_length = 8,
             option = { get_bufnrs = function()
               return vim.api.nvim_list_bufs()
