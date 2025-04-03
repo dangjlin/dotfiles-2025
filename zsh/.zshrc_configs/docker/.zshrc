@@ -1,3 +1,4 @@
+echo "Load docker verion zshrc file successfully"
 # Define path
 export PROJECT_PATH=/proj
 export DOTFILE_PATH=/root/.dotfiles_core

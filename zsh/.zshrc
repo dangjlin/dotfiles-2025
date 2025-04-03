@@ -190,7 +190,6 @@ alias gbda='git branch --merged | egrep -v "(^\*|master|dev|nerv|perv)" | xargs 
 alias dbdp='DEV_PASSWORD="ie6sucks" /Users/daniel/proj/vm/scripts/db_dump.rb'
 
 alias lg='lazygit'
-alias ld='lazydocker'
 
 # JavaScript
 alias nodejs=node
@@ -229,13 +228,9 @@ if [[ -d ~/proj/vm ]]; then
   alias ch_pw='be rails runner ~/proj/vm/scripts/nerv/change_passwords.rb'
   alias e_pw='vim ~/proj/vm/scripts/nerv/change_passwords.rb'
 else
-  echo "[Reminder] You need to clone vm project from Gitlab to get scripts for alias."
-fi
-
-if [[ -d ~/proj/wscripts ]]; then
-  alias e_db='vim ~/proj/wscripts/db/db_mapping.yml'
-  alias ch_pw='be rails runner ~/proj/wscripts/db/ch_pw.rb'
-  alias e_pw='vim ~/proj/wscripts/db/ch_pw.rb'
+  if [[ OS_TYPE == "mac" ]]; then
+    echo "[Reminder] You need to clone vm project from Gitlab to get scripts for alias."
+  fi
 fi
 
 # Rails

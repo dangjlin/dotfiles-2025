@@ -1,4 +1,5 @@
 # shortcut on pointing diff compose file and using lazydocker
+echo "Loaded docker version zshrc helper successfully"
 ld() {
   project="${1:-$(detect_pwd_project)}"
   case "$project" in

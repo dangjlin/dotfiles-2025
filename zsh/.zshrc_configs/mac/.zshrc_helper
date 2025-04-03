@@ -1,3 +1,4 @@
+echo "Loaded mac version zshrc helper successfully"
 dump_db() {
   dir=${$(pwd):t}
   if [[ "$dir" == 'amoeba' || "$dir" == 'cam' ]]; then
