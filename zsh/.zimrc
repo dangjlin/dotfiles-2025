@@ -43,9 +43,11 @@ zmodule asdf
 zmodule fzf
 zmodule exa
 
-# A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
-# zmodule asciiship
-zmodule sindresorhus/pure --source async.zsh --source pure.zsh
-# zmodule eriner
+# MACOS use
+# zmodule sindresorhus/pure --source async.zsh --source pure.zsh
+
+# try for container use
+zmodule prompt-pwd
+zmodule eriner
 
 zmodule bootleq/zsh-cop --source bin/cop.zsh
