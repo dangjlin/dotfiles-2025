@@ -42,6 +42,28 @@ source ${ZIM_HOME}/init.zsh
 
 # }}} End configuration added by Zim install
 
+########################
+# Detect OS
+########################
+if [[ "$(uname)" == "Darwin" ]]; then
+  export OS_TYPE="mac"
+elif [[ -f /.dockerenv ]]; then
+  export OS_TYPE="docker"
+else
+  export OS_TYPE="unknown"
+fi
+
+# Source OS-specific config
+# NOTE: different OS zsh in dotfiles/zsh/.zshrc_configs/$OS_TYPE
+ # this line must define before .zshrc_helper because it will use $PROJECT_PATH
+if [[ -f "$HOME/.zshrc_configs/$OS_TYPE/.zshrc" ]]; then
+  source "$HOME/.zshrc_configs/$OS_TYPE/.zshrc"
+fi
+
+source ~/.zshrc_helper
+if [[ -f "$HOME/.zshrc_configs/$OS_TYPE/.zshrc_helper" ]]; then
+  source "$HOME/.zshrc_configs/$OS_TYPE/.zshrc_helper"
+fi
 
 if [[ "`uname -s`" == "Darwin" ]]; then
   # [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -50,7 +72,6 @@ else
   # [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh && source "$HOME/.asdf/completions/asdf.bash"
   # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 fi
-
 
 ########################
 # General
@@ -178,13 +199,6 @@ alias nodejs=node
 # Project Related
 ########################
 export DISABLE_SPRING=1
-alias krpu='rpu kill'
-alias pru='rpu'
-alias spru='skip_mig_warn=1 rpu'
-
-alias rss='RAILS_RELATIVE_URL_ROOT=/`basename $PWD` rails server'
-
-alias aoc='j ~/proj/advent-of-code'
 
 # Nerv Projects
 alias ck='j ~/proj/nerv_ck'
@@ -265,12 +279,6 @@ alias ccup='brew reinstall clj-kondo'
 alias ran='clj -M:dev:nrepl'
 alias rat='clj -M:test:runner --watch'
 
-# Asuka
-alias rw='npm run watch'
-alias rwh='NERV_BASE=/nerv_hk npm run watch'
-alias rwc='NERV_BASE=/nerv_ck npm run watch'
-alias rws='NERV_BASE=/nerv_sg npm run watch'
-
 # Tmuxinator
 alias t='tmuxinator'
 alias work='t s work'
@@ -286,7 +294,6 @@ alias dcn='docker container'
 ########################
 alias dot='j ~/dotfiles'
 alias zshrc='e ~/dotfiles/zsh/.zshrc'
-alias sozsh='source ~/.zshrc'
 alias vimrc='e ~/dotfiles/nvim/.config/nvim/init.lua'
 alias en='e .env'
 # alias mc='mailcatcher --http-ip 0.0.0.0; rse'
@@ -375,61 +382,7 @@ case `uname` in
   ;;
 esac
 
-function _cop_ruby() {
-  local exts=('rb,thor,builder,jbuilder,pryrc')
-  local excludes=':(top,exclude)db/schema.rb'
-  local extra_options='--display-cop-names'
-
-  if [[ $# -gt 0 ]]; then
-    local files=$(eval "noglob git diff $@ --diff-filter=d --name-only -- *.{$exts} $excludes")
-  else
-    local files=$(eval "noglob git status --porcelain -- *.{$exts} $excludes | sed -e '/^\s\?[DRC] /d' -e 's/^.\{3\}//g'")
-  fi
-
-  if [[ -n "$files" ]]; then
-    echo $files | xargs bundle exec rubocop `echo $extra_options` --format pacman
-  else
-    echo 'Nothing to check (rubocop).'
-  fi
-}
-
-function nrw() {
-  local folder_path
-  local folder_name
-  local asuka_path
-  [[ $PWD =~ '(.*perv|.*sg|.*nerv|.*ave_ck)'  ]] && folder_path=$match[1]
-  [[ $folder_path =~ '.*(perv|sg|nerv|ave_ck)$'  ]] && folder_name=$match[1]
-  asuka_path="$folder_path/clojure/projects/asuka"
-  cd $asuka_path && NERV_BASE=/${=folder_name} DEV_DARK_MODE=true npm run watch
-}
-
-function amoeba_test_reset() {
-  RAILS_ENV=test bundle exec rake db:drop
-  RAILS_ENV=test bundle exec rake db:create
-  RAILS_ENV=test bundle exec rake db:schema:load
-  RAILS_ENV=test bundle exec rake db:seed
-}
-
 # fix issue on puma start in deamon mode
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# related to pg library
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@15/lib/pkgconfig"
-
-# Added by Windsurf
-export PATH="/Users/daniel/.codeium/windsurf/bin:$PATH"
-
-# for wasp
-export PATH=$PATH:/Users/daniel/.local/bin
-
-# for api keys
-[ -f ~/dotfiles/zsh/.zsh_secrets ] && source ~/dotfiles/zsh/.zsh_secrets
