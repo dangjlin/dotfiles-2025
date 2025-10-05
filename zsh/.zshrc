@@ -367,7 +367,7 @@ case `uname` in
       elif [ $# -eq 1 ]; then
         lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
       else
-        echo "Usage: listening [pattern]"
+        echo "Usage: lsistening [pattern]"
       fi
     }
   ;;
@@ -381,3 +381,9 @@ esac
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/daniel/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH="$HOME/bin:$PATH"
