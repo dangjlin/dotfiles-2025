@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
@@ -42,12 +40,16 @@ local function lsp_keymaps(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-local on_attach = function(client, bufnr)
-  lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
-end
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local bufnr = ev.buf
+    lsp_keymaps(bufnr)
+    lsp_highlight_document(client)
+  end,
+})
 
 local servers = { "jsonls", "lua_ls", "clojure_lsp", "tailwindcss", "eslint", "gopls" }
 
@@ -58,12 +60,13 @@ require("mason-lspconfig").setup {
 
 for _, server in pairs(servers) do
   local opts = {
-    on_attach = on_attach,
     capabilities = capabilities,
   }
   local has_custom_opts, server_custom_opts = pcall(require, "config.lsp.settings." .. server)
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
-  lspconfig[server].setup(opts)
+  vim.lsp.config(server, opts)
 end
+
+vim.lsp.enable(servers)
