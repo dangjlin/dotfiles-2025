@@ -1,4 +1,20 @@
 #!/usr/bin/env zsh
+# ============================================================================
+# Linux Installation Script (Ubuntu/Debian)
+# ============================================================================
+# Automated installation script for Linux development environment:
+# 1. Install packages: stow, bat, ripgrep, autojump, eza, wget
+# 2. Install Neovim from PPA (stable version)
+# 3. Install Python dev tools and pip
+# 4. Install ASDF version manager (v0.9.0)
+# 5. Create config directories for all tools
+# 6. Use GNU Stow to symlink dotfiles to home directory
+# 7. Install Zim framework for ZSH
+# 8. Install Tmux Plugin Manager (TPM)
+# Note: This script is untested - use with caution
+# ============================================================================
+
+#!/usr/bin/env zsh
 
 echo 'Linux (Script untested)...'
 sudo apt install stow bat ripgrep autojump eza wget

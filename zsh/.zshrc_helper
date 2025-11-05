@@ -1,3 +1,14 @@
+# ============================================================================
+# .zshrc_helper - ZSH Helper Functions
+# ============================================================================
+# This file contains utility functions for ZSH including:
+# - tmt()  : Smart tmux session management (create/attach sessions by directory)
+# - rpy()  : Remote pry debugger connection function
+# - rpu()  : Puma/Unicorn server management (start/stop/restart/kill)
+# - rserver_restart() : Internal helper for server restart logic
+# - cbr()  : Fuzzy git branch checkout using fzf
+# ============================================================================
+
 # From Upcase tmux course
 tmt(){
 session_name="$(basename "$PWD" | tr . -)"

@@ -1,3 +1,18 @@
+-- ============================================================================
+-- coding.lua - Coding Enhancement Plugins
+-- ============================================================================
+-- Collection of plugins to enhance coding experience:
+-- - vim-unimpaired: Bracket mappings for navigation
+-- - vim-abagile: Custom Abagile company utilities
+-- - treesj: Split/join code blocks (max 500 chars)
+-- - nvim-autopairs: Auto-close brackets and quotes
+-- - vim-repeat: Enable . repeat for plugin mappings
+-- - vim-surround: Surround text objects with brackets/quotes
+-- - vim-commentary: Easy code commenting (gc, gcc)
+-- - vim-test: Test runner integration
+-- - nvim-spectre: Search and replace across files
+-- ============================================================================
+
 return {
   -- Navigation
   "tpope/vim-unimpaired",

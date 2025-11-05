@@ -1,3 +1,13 @@
+# ============================================================================
+# .default-gems - ASDF Ruby Default Gems
+# ============================================================================
+# Gems automatically installed with every new Ruby version via ASDF:
+# - bundler: Ruby dependency manager
+# - pry: Interactive Ruby REPL (better than IRB)
+# - amazing_print: Pretty print Ruby objects (formerly awesome_print)
+# - thor: Toolkit for building CLI applications
+# ============================================================================
+
 bundler
 pry
 amazing_print

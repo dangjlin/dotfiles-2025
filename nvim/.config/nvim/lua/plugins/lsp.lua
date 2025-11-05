@@ -1,3 +1,14 @@
+-- ============================================================================
+-- lsp.lua - LSP (Language Server Protocol) Plugin Configuration
+-- ============================================================================
+-- Configures LSP plugins including:
+-- - nvim-lspconfig: Core LSP client
+-- - mason.nvim & mason-lspconfig: Language server installer/manager
+-- - none-ls.nvim (null-ls fork): Formatting and diagnostics (RuboCop)
+-- - trouble.nvim: Better diagnostics UI
+-- Provides: Ruby RuboCop integration via bundle exec, trailing space detection
+-- ============================================================================
+
 return {
   -- LSP
   "neovim/nvim-lspconfig",   -- enable LSP

@@ -1,3 +1,14 @@
+-- ============================================================================
+-- lualine.lua - Status Line Configuration
+-- ============================================================================
+-- Configures Lualine status line with:
+-- - nvim-lualine/lualine.nvim: Fast and customizable status line
+-- - Sections: mode, git diff, diagnostics, filename, encoding, filetype, location
+-- - Theme: auto (matches current colorscheme)
+-- - Icons: enabled with Nerd Fonts
+-- - Updates: on cursor move for real-time info
+-- ============================================================================
+
 return {
   {
     "nvim-lualine/lualine.nvim",

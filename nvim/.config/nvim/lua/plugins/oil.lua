@@ -1,3 +1,14 @@
+-- ============================================================================
+-- oil.lua - Oil File Explorer Configuration
+-- ============================================================================
+-- Configures Oil file manager plugin:
+-- - stevearc/oil.nvim: Edit filesystem like a buffer
+-- - Features: Edit files/dirs like text, show hidden files, icon column
+-- - Keybindings: "-" opens parent directory, <space>- opens floating window
+-- - Not default file explorer (nvim-tree is default)
+-- - Alternative to nvim-tree for buffer-like file editing
+-- ============================================================================
+
 return {
   {
     "stevearc/oil.nvim",

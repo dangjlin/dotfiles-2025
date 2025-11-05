@@ -1,3 +1,15 @@
+-- ============================================================================
+-- nvim-tree.lua - File Explorer Configuration
+-- ============================================================================
+-- Configures NvimTree file explorer with:
+-- - nvim-tree.nvim: File tree sidebar
+-- - Floating window: 80% height, 20% width
+-- - Auto-open on directory or [No Name] buffer
+-- - Git integration: Show modified files, ignored files
+-- - Custom keybindings: <leader>dd toggle, <leader>df find file
+-- - Renderer: Group empty directories, highlight git changes
+-- ============================================================================
+
 local HEIGHT_RATIO = 0.8  -- You can change this
 local WIDTH_RATIO = 0.2   -- You can change this too
 

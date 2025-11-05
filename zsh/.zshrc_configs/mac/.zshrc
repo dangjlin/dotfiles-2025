@@ -1,3 +1,15 @@
+# ============================================================================
+# macOS-Specific ZSH Configuration
+# ============================================================================
+# This file is sourced only on macOS systems and contains:
+# - Project and dotfile path definitions specific to macOS
+# - Homebrew PostgreSQL library paths and build flags
+# - Editor integration (e3 launcher with Docker clipboard sync)
+# - LazyDocker alias
+# - Windsurf IDE and Wasp framework PATH additions
+# - API keys and secrets loading from .zsh_secrets
+# ============================================================================
+
 # Define path
 export PROJECT_PATH=$HOME/proj
 export DOTFILE_PATH=$HOME/dotfiles

@@ -1,3 +1,15 @@
+# ============================================================================
+# .zimrc - Zim Framework Module Configuration
+# ============================================================================
+# Defines which Zim framework modules to load. Modules provide:
+# - Core: environment, git aliases, terminal title, utility functions
+# - Completions: zsh-completions with tab completion enhancements
+# - Interactive: autosuggestions, syntax highlighting, history search
+# - Tools: ssh, asdf, fzf, eza integration
+# - Prompt: eriner theme with prompt-pwd
+# - Custom: zsh-cop plugin for code quality checks
+# ============================================================================
+
 # Start configuration added by Zim install {{{
 # -------
 # Modules

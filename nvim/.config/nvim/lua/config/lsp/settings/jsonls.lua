@@ -1,3 +1,13 @@
+-- ============================================================================
+-- jsonls.lua - JSON Language Server Settings
+-- ============================================================================
+-- Configures jsonls (JSON Language Server) with JSON schema validation:
+-- - Schemas: CMake, CodeClimate, CloudFormation, AWS SAM, GitHub Workflows
+-- - NPM: package.json schema validation
+-- - Format command: Custom JSON formatting function
+-- - Auto-complete and validation for common JSON config files
+-- ============================================================================
+
 local default_schemas = nil
 local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
 if status_ok then

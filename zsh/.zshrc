@@ -1,3 +1,20 @@
+# ============================================================================
+# .zshrc - Main ZSH Configuration File
+# ============================================================================
+# This is the primary ZSH configuration file that sets up the complete shell
+# environment including:
+# - Zim framework initialization and module configuration
+# - OS detection (macOS, Docker, Linux) and platform-specific configs
+# - General shell options (history, flow control, locale, editor)
+# - Extensive alias definitions for common tools (git, nvim, docker, etc.)
+# - Ruby/Rails development aliases and functions
+# - Clojure development setup
+# - Tmux/Tmuxinator integration
+# - FZF fuzzy finder configuration
+# - Zoxide (smart cd) integration
+# - Key bindings (vim mode with emacs-style shortcuts)
+# ============================================================================
+
 ########################
 # Zim
 ########################

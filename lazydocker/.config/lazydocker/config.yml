@@ -1,3 +1,13 @@
+# ============================================================================
+# LazyDocker Configuration
+# ============================================================================
+# Configuration for LazyDocker terminal UI for Docker:
+# - GUI: Return immediately after command execution
+# - Custom commands:
+#   * "rails console >" : Open Rails console in container
+#   * "attach >" : Attach to container with custom detach key (Ctrl-D)
+# ============================================================================
+
 gui:
   returnImmediately: true
 

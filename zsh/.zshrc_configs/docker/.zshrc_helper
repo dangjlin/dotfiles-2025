@@ -1,3 +1,15 @@
+# ============================================================================
+# Docker-Specific ZSH Helper Functions
+# ============================================================================
+# This file contains Docker-specific utility functions for multi-site development:
+# - ld() : LazyDocker launcher with automatic compose file detection by site
+# - dc() : Docker Compose wrapper (up/down/ps/attach) for NERV sites
+# - detect_pwd_project() : Detect project name from PWD (nerv_hk/ck/sg/amoeba)
+# - amoeba_site() : Get or setup Amoeba site configuration
+# - dump_db() : Smart database dump for different projects (NERV/Amoeba)
+# - sc() : Swap cache folder between default/amoeba/angel projects
+# ============================================================================
+
 # shortcut on pointing diff compose file and using lazydocker
 echo "Loaded docker version zshrc helper successfully"
 ld() {

@@ -1,3 +1,17 @@
+# ============================================================================
+# Git Configuration
+# ============================================================================
+# Main Git configuration file with:
+# - User: Daniel Lin <daniel.lin@abagile.com> (loads from user_config)
+# - Push: Simple strategy (push current branch)
+# - Pull: Merge strategy (no rebase)
+# - Core: Neovim editor, less pager, global gitignore
+# - Colors: Custom diff highlighting (red/green with bold)
+# - Aliases: Extensive shortcuts for common operations
+# - Merge: Simple conflict style
+# - Branch: Auto-setup remote tracking
+# ============================================================================
+
 [user]
   useConfigOnly = true
   name = Daniel Lin
