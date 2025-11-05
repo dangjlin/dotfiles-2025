@@ -1,3 +1,16 @@
+# ============================================================================
+# .tool-versions - ASDF Version Manager Configuration
+# ============================================================================
+# Specifies language versions managed by ASDF:
+# - rust: 1.56.1
+# - java: Zulu OpenJDK 8.58.0.13
+# - clojure: 1.10.3.967
+# - ruby: 2.7.8 (global version, can be overridden per project)
+# - nodejs: 22.16.0
+# - golang: 1.23.6
+# Run `asdf install` to install all versions specified here
+# ============================================================================
+
 rust 1.56.1
 java zulu-8.58.0.13
 clojure 1.10.3.967

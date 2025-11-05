@@ -1,1 +1,9 @@
+# ============================================================================
+# .gemrc - RubyGems Configuration
+# ============================================================================
+# Global RubyGems configuration:
+# - --no-document: Skip generating ri and rdoc documentation during gem install
+#   (speeds up gem installation significantly)
+# ============================================================================
+
 gem: --no-document

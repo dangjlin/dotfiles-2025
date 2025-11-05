@@ -1,3 +1,13 @@
+-- ============================================================================
+-- init.lua - Neovim Main Entry Point
+-- ============================================================================
+-- This is the main Neovim configuration entry point that:
+-- - Sets the leader key to comma (,)
+-- - Loads core configuration modules (options, autocmds, keymaps, lsp)
+-- - Initializes Lazy.nvim plugin manager
+-- - Detects Docker environment and loads Docker-specific config if needed
+-- ============================================================================
+
 vim.g.mapleader = ","
 -- vim.g.maplocalleader = " "
 

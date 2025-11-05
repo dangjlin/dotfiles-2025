@@ -1,4 +1,18 @@
 #!/usr/bin/env zsh
+# ============================================================================
+# Docker Installation Script
+# ============================================================================
+# Automated setup script for Docker container development environment:
+# 1. Verify Docker environment (checks for /.dockerenv)
+# 2. Create config directories in /root/.config
+# 3. Use GNU Stow to symlink dotfiles from /root/.dotfiles
+# 4. Install Ruby 3.0.7 and 3.1.6 via ASDF
+# 5. Set global Ruby version to 3.1.6
+# Note: Dotfiles should be mounted to /root/.dotfiles in compose.yml
+# Note: Ruby installations go to /cache folder (development-cache volume)
+# ============================================================================
+
+#!/usr/bin/env zsh
 
 if [[ ! -f /.dockerenv ]]; then
   echo 'Not a Docker env, please double check!'

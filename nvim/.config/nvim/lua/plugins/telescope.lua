@@ -1,3 +1,16 @@
+-- ============================================================================
+-- telescope.lua - Telescope Fuzzy Finder Configuration
+-- ============================================================================
+-- Configures Telescope fuzzy finder with:
+-- - telescope.nvim: Core fuzzy finder
+-- - telescope-fzf-native: Native FZF sorter for better performance
+-- - telescope-ui-select: Native vim.ui.select replacement
+-- - File ignore patterns: vendor/, .lsp/, .clj-kondo/, node_modules
+-- - Custom layout: 95% width, 85% height, top prompt position
+-- - Ripgrep integration for fast file searching
+-- - Key mappings defined in keymaps.lua (<C-p>, <leader>f*)
+-- ============================================================================
+
 return {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope-ui-select.nvim" },

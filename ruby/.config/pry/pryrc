@@ -1,3 +1,14 @@
+# ============================================================================
+# pryrc - Pry Ruby REPL Configuration
+# ============================================================================
+# Configures Pry interactive Ruby shell with:
+# - AmazingPrint: Enhanced output formatting
+# - Command aliases: at (whereami), ep (exit-program), c/s/n/f (debugger cmds)
+# - Pager: Disabled for better inline output
+# - Nerv helpers: Custom resource type shortcuts (bp, tu, sr, etc.)
+# - Custom commands for Rails development and debugging
+# ============================================================================
+
 require 'amazing_print'
 AmazingPrint.pry!
 

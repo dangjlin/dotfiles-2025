@@ -1,3 +1,14 @@
+-- ============================================================================
+-- copilot.lua - GitHub Copilot Configuration
+-- ============================================================================
+-- Configures GitHub Copilot AI code completion:
+-- - github/copilot.vim: Official GitHub Copilot plugin
+-- - Lazy load: Only loads when entering Insert mode
+-- - Accept: <C-J> to accept suggestion (instead of Tab)
+-- - Navigate: <Right> for next, <Left> for previous suggestion
+-- - Tab is preserved for nvim-cmp completion
+-- ============================================================================
+
 return {
   "github/copilot.vim",
   event = "InsertEnter", -- Load Copilot only when entering Insert mode

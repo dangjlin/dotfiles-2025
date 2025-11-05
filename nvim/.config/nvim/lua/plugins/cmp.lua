@@ -1,3 +1,15 @@
+-- ============================================================================
+-- cmp.lua - Completion Engine Configuration (nvim-cmp)
+-- ============================================================================
+-- Configures the completion engine with:
+-- - hrsh7th/nvim-cmp: Core completion engine
+-- - Sources: buffer, path, LSP, LuaSnip
+-- - Snippets: LuaSnip integration with friendly-snippets
+-- - UI: Custom kind icons, bordered completion menu
+-- - Keybindings: Tab/S-Tab for navigation, <C-Space> for trigger
+-- - Backspace detection helper for smart completion
+-- ============================================================================
+
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"

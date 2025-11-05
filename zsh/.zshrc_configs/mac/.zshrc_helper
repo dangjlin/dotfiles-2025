@@ -1,3 +1,15 @@
+# ============================================================================
+# macOS-Specific ZSH Helper Functions
+# ============================================================================
+# This file contains macOS-specific utility functions:
+# - dump_db() : Database dump wrapper for Amoeba/CAM and other projects
+# - sync_docker_clipboard() : Clipboard sync between macOS and Docker (socat)
+# - nrw() : Start Asuka npm watch with NERV_BASE detection
+# - _cop_ruby() : Run RuboCop on changed files (git diff/status)
+# - amoeba_test_reset() : Reset test database for Amoeba project
+# - start_all_server() : Launch all servers in tmux panes (npm, sidekiq, puma)
+# ============================================================================
+
 echo "Loaded mac version zshrc helper successfully"
 dump_db() {
   dir=${$(pwd):t}

@@ -1,3 +1,17 @@
+-- ============================================================================
+-- options.lua - Neovim Editor Options
+-- ============================================================================
+-- This file contains all Neovim editor settings including:
+-- - Indentation: 2 spaces, smart indent, expandtab
+-- - Search: ignorecase, smartcase, no hlsearch
+-- - UI: line numbers (relative), cursorline, termguicolors
+-- - Files: no swapfile, undofile, hidden buffers
+-- - Completion: menuone, noselect
+-- - Spell checking: enabled for en_us
+-- - Mouse and clipboard integration
+-- - Visual: list mode, sign column, window management
+-- ============================================================================
+
 -- ============================
 --      Settings / options
 -- ============================

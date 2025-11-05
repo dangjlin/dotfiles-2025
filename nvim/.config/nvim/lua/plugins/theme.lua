@@ -1,3 +1,14 @@
+-- ============================================================================
+-- theme.lua - Color Scheme Configuration
+-- ============================================================================
+-- Multiple colorscheme options (nord.nvim is active):
+-- - nord.nvim: Active theme - Arctic, north-bluish color palette
+-- - vscode.nvim: VSCode-inspired theme (commented out)
+-- - onedark.nvim: Atom's One Dark theme (commented out)
+-- - tokyonight.nvim: Dark theme inspired by Tokyo's night (commented out)
+-- Switch themes by commenting/uncommenting the vim.cmd colorscheme lines
+-- ============================================================================
+
 return {
   {
     "shaunsingh/nord.nvim",

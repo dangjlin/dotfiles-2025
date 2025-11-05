@@ -1,3 +1,17 @@
+-- ============================================================================
+-- autocmds.lua - Neovim Autocommands
+-- ============================================================================
+-- Defines automatic commands for various events:
+-- - General: yank highlighting, quickfix management, format options
+-- - Filetypes: slim, thor, pryrc as Ruby; ssh_config detection
+-- - Git: gitcommit wrapping, spell check, and shortcuts
+-- - YAML: eruby.yaml handling, fdoc detection, spell check
+-- - Rails: custom navigation command for jobs
+-- - Clojure: iskeyword customization, debug shortcuts
+-- - Window: auto-resize on VimResized event
+-- - Diagnostics: floating window on cursor hold
+-- ============================================================================
+
 -- ==================
 --      Autocmd
 -- ==================

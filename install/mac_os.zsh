@@ -1,4 +1,19 @@
 #!/usr/bin/env zsh
+# ============================================================================
+# macOS Installation Script
+# ============================================================================
+# Automated installation script for macOS development environment:
+# 1. Install Homebrew packages: stow, asdf, fzf, nvim, git, tig, tmux, etc.
+# 2. Install CLI tools: bat, ripgrep, eza, fd, delta, jq, yq, lazydocker
+# 3. Create config directories for all tools
+# 4. Use GNU Stow to symlink dotfiles to home directory
+# 5. Install ASDF plugins and language versions from .tool-versions
+# 6. Install Zim framework for ZSH
+# 7. Install Tmux Plugin Manager (TPM)
+# Usage: Run this script after cloning dotfiles to ~/dotfiles
+# ============================================================================
+
+#!/usr/bin/env zsh
 
 echo 'You are in Mac OS...'
 echo 'Install developer tools in general'
