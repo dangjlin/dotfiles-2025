@@ -1,3 +1,20 @@
+-- ============================================================================
+-- keymaps.lua - Neovim Key Bindings
+-- ============================================================================
+-- Comprehensive key mapping configuration including:
+-- - Leader key: comma (,)
+-- - Navigation: H/L for line start/end, j/k for wrapped lines
+-- - Editing: Text movement (J/K in visual), centered search (n/N)
+-- - Telescope: fuzzy finding (<C-p>, <leader>f*)
+-- - NvimTree: file explorer (<leader>dd, <leader>f)
+-- - Git: fugitive, gitsigns, git-blame mappings
+-- - Testing: vim-test integration (<leader>t*)
+-- - Rails: vim-rails navigation (<leader>aa, <leader>av)
+-- - Tmux: VimTmuxRunner integration (<leader>ar, <leader>sl)
+-- - Clipboard: system clipboard integration (<Leader>y, <Leader>P)
+-- - Buffer/Window: management shortcuts (tab, <leader>q, <leader>w)
+-- ============================================================================
+
 -- ===================
 --      keymaps
 -- ===================

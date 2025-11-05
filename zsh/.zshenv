@@ -1,3 +1,14 @@
+# ============================================================================
+# .zshenv - ZSH Environment Variables
+# ============================================================================
+# This file is sourced by all invocations of the shell (interactive and
+# non-interactive). It should contain:
+# - Zim home directory configuration
+# - Essential environment variables
+# - Common Rails development aliases (krpu, disboot, mig, smig)
+# - Variables needed by other scripts and non-interactive shells
+# ============================================================================
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by all invocations of the shell

@@ -1,3 +1,16 @@
+-- ============================================================================
+-- lsp/init.lua - LSP Core Setup and Configuration
+-- ============================================================================
+-- Configures Language Server Protocol (LSP) functionality:
+-- - Handlers: Rounded borders for hover and signature help
+-- - Keymaps: K (hover), gd (definition), <localleader>l* (LSP commands)
+-- - Document highlighting: Auto-highlight on cursor hold
+-- - Mason setup: Auto-install language servers
+-- - Servers: jsonls, lua_ls, clojure_lsp, tailwindcss, eslint, gopls
+-- - Capabilities: Enhanced with nvim-cmp for better completions
+-- - Custom settings: Loads from config.lsp.settings.{server} if available
+-- ============================================================================
+
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })

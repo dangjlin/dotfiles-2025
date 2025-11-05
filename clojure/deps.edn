@@ -1,3 +1,13 @@
+;; ============================================================================
+;; deps.edn - Clojure Dependencies Configuration (User-Level)
+;; ============================================================================
+;; User-level Clojure dependencies and aliases:
+;; - nrepl alias: CIDER nREPL with middleware for Emacs/editor integration
+;; - debux: Clojure/ClojureScript debugging library with tracing
+;; This file is merged with install-level and project-level deps.edn files
+;; when using `clojure` or `clj` commands.
+;; ============================================================================
+
 ;; The deps.edn file describes the information needed to build a classpath.
 ;;
 ;; When using the `clojure` or `clj` script, there are several deps.edn files

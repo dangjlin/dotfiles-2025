@@ -1,3 +1,16 @@
+-- ============================================================================
+-- ui.lua - UI Enhancement Plugins
+-- ============================================================================
+-- Plugins to improve visual appearance and UI:
+-- - popup.nvim: Popup API implementation
+-- - rainbow-delimiters: Color-coded matching brackets/parens
+-- - indent-blankline: Indentation guides with scope highlighting
+-- - nvim-web-devicons: File type icons for UI plugins
+-- - gitsigns: Git change indicators in sign column
+-- - dressing.nvim: Better vim.ui.select and vim.ui.input
+-- - nui.nvim: UI component library for plugins
+-- ============================================================================
+
 return {
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   {

@@ -1,3 +1,13 @@
+# ============================================================================
+# bat Configuration - Cat Clone with Syntax Highlighting
+# ============================================================================
+# Configuration for bat (better cat with syntax highlighting):
+# - Theme: gruvbox-dark for dark terminal backgrounds
+# - Paging: Disabled (never) - always show full output
+# - Used as cat replacement via alias in .zshrc
+# Run `bat --list-themes` to see all available themes
+# ============================================================================
+
 # This is `bat`s configuration file. Each line either contains a comment or
 # a command-line option that you want to pass to `bat` by default. You can
 # run `bat --help` to get a list of all possible configuration options.

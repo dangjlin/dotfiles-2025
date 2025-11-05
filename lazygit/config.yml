@@ -1,3 +1,13 @@
+# ============================================================================
+# LazyGit Configuration
+# ============================================================================
+# Configuration for LazyGit terminal UI for Git:
+# - GUI: Icons enabled, side panel 25% width
+# - Paging: Delta diff viewer with dark theme
+# - Commit: Verbose mode (always show diff in commit message)
+# - Keybindings: 'q' to return, quit disabled (use 'q' instead)
+# ============================================================================
+
 gui:
   # stuff relating to the UI
   # windowSize: 'full'

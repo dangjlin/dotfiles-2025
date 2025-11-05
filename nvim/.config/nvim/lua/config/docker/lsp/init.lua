@@ -1,3 +1,13 @@
+-- ============================================================================
+-- docker/lsp/init.lua - Docker-Specific LSP Configuration
+-- ============================================================================
+-- Configures LSP package installation for Docker ARM64 environment:
+-- - Packages: lua-language-server, stylua
+-- - Platform: linux_arm64_gnu (ARM64 architecture)
+-- - Auto-install: Checks if package is installed, installs with correct target
+-- - Workaround: Mason doesn't auto-detect ARM64 Docker correctly
+-- ============================================================================
+
 local registry = require 'mason-registry'
 for _, package_name in ipairs { 'lua-language-server', 'stylua' } do
   local ok, package = pcall(function()

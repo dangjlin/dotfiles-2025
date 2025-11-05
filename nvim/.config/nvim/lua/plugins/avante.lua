@@ -1,3 +1,14 @@
+-- ============================================================================
+-- avante.lua - Avante AI Code Assistant Configuration
+-- ============================================================================
+-- Configures Avante AI assistant plugin:
+-- - yetone/avante.nvim: AI-powered code assistant in Neovim
+-- - Provider: OpenAI GPT-4.1 with custom endpoint
+-- - Settings: 30s timeout, temperature 0 for deterministic results
+-- - Dependencies: plenary, nui, dressing, image (for image support)
+-- - Event: VeryLazy for optimal loading performance
+-- ============================================================================
+
 return {
   -- Your config here!
   "yetone/avante.nvim",

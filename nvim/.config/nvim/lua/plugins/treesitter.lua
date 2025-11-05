@@ -1,3 +1,15 @@
+-- ============================================================================
+-- treesitter.lua - Treesitter Configuration (Syntax Highlighting & Parsing)
+-- ============================================================================
+-- Configures Treesitter for advanced syntax highlighting and parsing:
+-- - nvim-treesitter: Parser generator for better syntax highlighting
+-- - Auto-install parsers for: ruby, lua, clojure, vim, bash, regex, markdown
+-- - nvim-treesitter-textobjects: Smart text objects for code navigation
+-- - Features: Rainbow parentheses, incremental selection, smart indent
+-- - Loads queries early for better performance
+-- Reference: https://www.lazyvim.org/plugins/treesitter
+-- ============================================================================
+
 -- https://www.lazyvim.org/plugins/treesitter
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/treesitter.lua
 

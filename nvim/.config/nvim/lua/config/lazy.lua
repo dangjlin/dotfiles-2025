@@ -1,3 +1,12 @@
+-- ============================================================================
+-- lazy.lua - Lazy.nvim Plugin Manager Configuration
+-- ============================================================================
+-- This file bootstraps and configures the Lazy.nvim plugin manager:
+-- - Auto-installs Lazy.nvim if not present
+-- - Sets up plugin loading from the "plugins" directory
+-- - Loads all plugin specs from lua/plugins/*.lua
+-- ============================================================================
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
