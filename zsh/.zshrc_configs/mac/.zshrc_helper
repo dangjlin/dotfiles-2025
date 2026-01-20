@@ -40,8 +40,8 @@ nrw() {
   local folder_path
   local folder_name
   local asuka_path
-  [[ $PWD =~ '(.*perv|.*sg|.*nerv|.*ave_ck)'  ]] && folder_path=$match[1]
-  [[ $folder_path =~ '.*(perv|sg|nerv|ave_ck)$'  ]] && folder_name=$match[1]
+  [[ $PWD =~ '(.*nerv_hk|.*nerv_ck|.*nerv_ave_ck|.*nerv_sg)'  ]] && folder_path=$match[1]
+  [[ $folder_path =~ '.*(nerv_hk|nerv_ck|nerv_sg|nerv_ave_ck)$'  ]] && folder_name=$match[1]
   asuka_path="$folder_path/clojure/projects/asuka"
   cd $asuka_path && NERV_BASE=/${=folder_name} DEV_DARK_MODE=true npm run watch
 }

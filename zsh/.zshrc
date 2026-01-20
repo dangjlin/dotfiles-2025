@@ -404,3 +404,6 @@ export PATH="$PATH:/Users/daniel/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export PATH="$HOME/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/daniel/.antigravity/antigravity/bin:$PATH"
