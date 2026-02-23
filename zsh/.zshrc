@@ -405,5 +405,8 @@ export PATH="$PATH:/Users/daniel/.lmstudio/bin"
 
 export PATH="$HOME/bin:$PATH"
 
+# For Golang bin path
+export PATH="$PATH:$(go env GOPATH)/bin"
+ 
 # Added by Antigravity
 export PATH="/Users/daniel/.antigravity/antigravity/bin:$PATH"
