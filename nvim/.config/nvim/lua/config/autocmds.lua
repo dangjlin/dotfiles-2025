@@ -26,6 +26,9 @@ vim.cmd([[
     autocmd BufNewFile,BufRead *.thor,.pryrc,pryrc setlocal filetype=ruby
     autocmd BufNewFile,BufRead ssh_config,*/.ssh/config.d/*  setf sshconfig
     " https://github.com/neovim/neovim/issues/7994#issuecomment-388296360
+    " for Golang default tab to use tab as 4 spaces, but do not expand to spaces"
+    autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
     autocmd InsertLeave * set nopaste
     autocmd User Rails silent! Rnavcommand job app/jobs -glob=**/* -suffix=_job.rb
     autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
