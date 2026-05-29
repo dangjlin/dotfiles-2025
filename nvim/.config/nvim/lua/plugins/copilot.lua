@@ -4,7 +4,7 @@
 -- Configures GitHub Copilot AI code completion:
 -- - github/copilot.vim: Official GitHub Copilot plugin
 -- - Lazy load: Only loads when entering Insert mode
--- - Accept: <C-J> to accept suggestion (instead of Tab)
+-- - Accept: <C-q> to accept suggestion
 -- - Navigate: <Right> for next, <Left> for previous suggestion
 -- - Tab is preserved for nvim-cmp completion
 -- ============================================================================
@@ -29,7 +29,9 @@ return {
 
     vim.cmd("Copilot enable")
     -- Remap accept tab to ctrl + j because auto complete words has been set to tab
-    vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+    -- Use <C-q> to accept Copilot suggestion.
+    -- <C-j> and <C-k> are intercepted by tmux (bind -n in tmux.conf) and cannot be used here.
+    vim.keymap.set('i', '<C-q>', 'copilot#Accept("\\<CR>")', {
       expr = true,
       replace_keycodes = false
     })
