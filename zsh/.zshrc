@@ -410,3 +410,5 @@ export PATH="$PATH:$(go env GOPATH)/bin"
  
 # Added by Antigravity
 export PATH="/Users/daniel/.antigravity/antigravity/bin:$PATH"
+# Added by Antigravity CLI installer
+export PATH="/Users/daniel/.local/bin:$PATH"
