@@ -148,7 +148,7 @@ alias ep='exit'
 alias rh='fc -R'
 
 # ag, rg
-alias ag='rg --sort created'
+alias ag='rg --sort modified'
 alias agi='ag -i'
 alias agiw='ag -i -w'
 alias agr='ag --ruby'
